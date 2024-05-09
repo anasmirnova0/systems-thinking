@@ -1,0 +1,93 @@
+.test__answers .radio:first-child {
+    border-top: 1px solid rgba($violet,.1);
+}
+.radio {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba($violet,.1);
+  &.radio-inline {
+      display: inline-block;
+  }
+
+  input[type="radio"] {
+      display: none;
+
+      &:checked {
+          +label:before {
+              border-color: rgba($violet, 1);
+              background-color: $violet;
+              animation: ripple 0.2s linear forwards;
+          }
+
+          +label.correct_sel:before,
+          +label.correct_show:before,
+          +label.incorrect_sel:before {
+              background-color: rgba($white, 1);
+          }
+
+          +label:after {
+              transform: scale(1);
+          }
+      }
+
+      &+label.correct:before {
+          border-color: rgba($violet, 1);
+          background-color: $violet;
+          animation: ripple 0.2s linear forwards;
+      }
+  }
+
+  label {
+      display: inline-block;
+      min-height: 25px;
+      position: relative;
+      padding: 0 0 0 48px;
+      margin-bottom: 0;
+      cursor: pointer;
+      vertical-align: bottom;
+
+      @media #{$breakpoint-xs-only} {
+          padding: 0 0 0 42px;
+      }
+
+      &:before,
+      &:after {
+          content: '';
+          position: absolute;
+          border-radius: 50%;
+          transition: all .3s ease;
+          transition-property: transform, border-color;
+      }
+      
+      &:before {
+          left: 0;
+          top: 0;
+          width: 25px;
+          height: 25px;
+          border: 2px solid rgba($violet, 1);
+          background: $white;
+      }
+
+      &:after {
+          top: 6px;
+          left: 6px;
+          width: 13px;
+          height: 13px;
+          transform: scale(0);
+          background: rgba(#FFFFFF, 1);
+      }
+  }
+}
+
+@keyframes ripple {
+  0% {
+      box-shadow: 0 0 0 1px rgba($black, 0);
+  }
+
+  50% {
+      box-shadow: 0 0 0 15px rgba($black, 0.10);
+  }
+
+  100% {
+      box-shadow: 0 0 0 15px rgba($black, 0);
+  }
+}

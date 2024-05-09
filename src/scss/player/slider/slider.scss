@@ -1,0 +1,95 @@
+.slider {
+    // &__item {
+    //     padding: 60px 40px;
+    // }
+    .align-center {
+        -ms-flex-item-align: center;
+        align-self: center;
+        -webkit-box-align: center!important;
+    }
+
+    @media #{$breakpoint-xs-only} {
+        &__item {
+            padding: 20px 15px;
+            height: 400px;
+        }
+    }
+
+    &__items {
+        box-shadow: 0 5px 10px rgba($black, 0.20);
+        background-color: white;
+    }
+
+    &__nav {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn {
+        cursor: pointer;
+        border: none;
+
+        &_prev{
+            font-size: 0;
+            width: 30px;
+            height: 14px;
+            background: url(/icons/prev-.svg) no-repeat;
+        }
+
+        &_next{
+            font-size: 0;
+            width: 30px;
+            height: 14px;
+            background: url(/icons/next-.svg) no-repeat;
+        }
+
+        &.slick-disabled {
+            cursor: default;
+            visibility: hidden;
+        }
+    }
+
+    &__dots {
+        list-style: none;
+
+        li {
+            float: left;
+            cursor: pointer;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba($white, 1);
+            margin-right: 5px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @media (hover: hover) {
+                &:hover {
+                    background-color: rgba($white, 0.50);
+                }
+            }
+
+            &.active {
+                background-color: rgba($violet, 1);
+            }
+        }
+
+        &.black {
+            li {
+              background-color: rgba($black, .2);
+            }
+
+              @media (hover: hover) {
+                &:hover {
+                  background-color: rgba($black, 1);
+                }
+            }
+            .active {
+                background-color: rgba($black, 1);
+            }
+        }
+    }
+}
